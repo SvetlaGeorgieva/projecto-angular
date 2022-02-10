@@ -4,7 +4,10 @@
   <h3>{{ project.name }}</h3>
 
   <li *ngFor="let task of project.tasks">
-    <button type="button">
+    <button
+      type="button"
+      [routerLink]="['/projects', project.name, 'tasks', task.id]"
+    >
       <span>{{ task.title }}</span>
       <span> -> {{ task.status }}</span>
     </button>
