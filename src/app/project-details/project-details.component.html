@@ -1,1 +1,12 @@
-<p>project-details works!</p>
+<h2>Project Details</h2>
+
+<div *ngIf="project">
+  <h3>{{ project.name }}</h3>
+
+  <li *ngFor="let task of project.tasks">
+    <button type="button">
+      <span>{{ task.title }}</span>
+      <span> -> {{ task.status }}</span>
+    </button>
+  </li>
+</div>
