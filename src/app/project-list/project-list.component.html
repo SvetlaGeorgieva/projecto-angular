@@ -1,0 +1,13 @@
+<h2>Projects</h2>
+
+<div *ngFor="let project of projects">
+  <h3>
+    <a
+      [title]="project.name + ' details'"
+      [routerLink]="['/projects', project.name]"
+    >
+      {{ project.name }}
+    </a>
+    <p>{{ project.tasks.length }} tasks in project</p>
+  </h3>
+</div>
