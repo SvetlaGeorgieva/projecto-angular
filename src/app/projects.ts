@@ -1,9 +1,11 @@
+import { Task } from './task';
+
 export interface Project {
   name: string;
-  tasks: Array<any>; // should be array of tasks
+  tasks: Task[];
 }
 
-export const projects = [
+export const PROJECTS: Project[] = [
   {
     name: 'Project 1',
     tasks: [

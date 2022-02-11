@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
-import { Project, projects } from '../projects';
+import { Project, PROJECTS } from '../projects';
 
 @Component({
   selector: 'app-project-details',
@@ -19,7 +19,7 @@ export class ProjectDetailsComponent implements OnInit {
     const projectNameFromRoute = routeParams.get('projectName');
 
     // Find the project that correspond with the name provided in the route.
-    this.project = projects.find(
+    this.project = PROJECTS.find(
       (project) => project.name === projectNameFromRoute
     );
   }
