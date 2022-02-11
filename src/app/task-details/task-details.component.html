@@ -3,3 +3,56 @@
 <div *ngIf="task">
   <h3>{{ task.title }}</h3>
 </div>
+
+<!-- // id: number; -->
+<div><span>ID: </span>{{ task.id }}</div>
+
+<!-- // type: 'Story' | 'Bug'; -->
+<div>
+  <label for="task-type"> Type: </label>
+  <input id="task-type" placeholder="Task type" />
+</div>
+
+<!-- // title: string; -->
+<div>
+  <label for="task-title"> Title </label>
+  <input id="task-title" placeholder="Task title" />
+</div>
+
+<!-- // description: string; -->
+<div>
+  <label for="description"> Description </label>
+  <input id="description" type="text" formControlName="description" />
+</div>
+
+<!-- // assignee: string; -->
+<div>
+  <label for="assignee"> Assignee </label>
+  <input id="assignee" type="text" formControlName="assignee" />
+</div>
+
+<!-- // priority: 'Low' | 'Normal' | 'High' | 'Critical'; -->
+<div>
+  <label for="priority"> Priority </label>
+  <input id="priority" type="text" formControlName="priority" />
+</div>
+
+<!-- // status: 'To Do' | 'In Progress' | 'Ready for Test' | 'Done'; -->
+<div>
+  <label for="status"> Status </label>
+  <input id="status" type="text" formControlName="status" />
+</div>
+
+<!-- // estimate: number; -->
+<div>
+  <label for="estimate"> Estimate </label>
+  <input id="estimate" type="text" formControlName="estimate" />
+</div>
+
+<!-- // createdAt: string; -->
+<div>
+  <label for="createdAt"> Created At </label>
+  <input id="createdAt" type="text" formControlName="createdAt" />
+</div>
+
+<button class="button" type="submit">Update task</button>

@@ -10,7 +10,29 @@ import { TaskService } from '../task.service';
   styleUrls: ['./task-details.component.css'],
 })
 export class TaskDetailsComponent implements OnInit {
-  task: Task | undefined;
+  // @Input() task!: Task;
+  task!: Task;
+
+  // taskInfoForm = this.formBuilder.group({
+  //   id: '',
+  //   type: '',
+  //   title: '',
+  //   description: '',
+  //   assignee: '',
+  //   priority: '',
+  //   status: '',
+  //   estimate: '',
+  //   createdAt: '',
+  // });
+
+  // type: 'Story' | 'Bug';
+  // title: string;
+  // description: string;
+  // assignee: string;
+  // priority: 'Low' | 'Normal' | 'High' | 'Critical';
+  // status: 'To Do' | 'In Progress' | 'Ready for Test' | 'Done';
+  // estimate: number;
+  // createdAt: string;
 
   constructor(
     private route: ActivatedRoute,
@@ -30,5 +52,10 @@ export class TaskDetailsComponent implements OnInit {
         projectNameFromRoute
       );
     }
+  }
+
+  updateTask(): void {
+    // TODO Process updating task data
+    console.warn('Your task has been updated');
   }
 }
