@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
 import { Task } from '../task';
-import { PROJECTS } from '../projects';
+import { TaskService } from '../task.service';
 
 @Component({
   selector: 'app-task-details',
@@ -12,21 +12,22 @@ import { PROJECTS } from '../projects';
 export class TaskDetailsComponent implements OnInit {
   task: Task | undefined;
 
-  constructor(private route: ActivatedRoute) {}
+  constructor(
+    private route: ActivatedRoute,
+    private taskService: TaskService
+  ) {}
 
   ngOnInit(): void {
-    // Get the task id from the current route.
+    // Get the task id and project name from the current route.
     const routeParams = this.route.snapshot.paramMap;
-    const taskIdFromRoute = routeParams.get('taskId');
-    const projectNameFromRoute = routeParams.get('projectName'); // TODO use service
+    const taskIdFromRoute = Number(routeParams.get('taskId'));
+    const projectNameFromRoute = routeParams.get('projectName');
 
-    // Find the task that correspond with the id provided in the route.
-    const project = PROJECTS.find(
-      (project) => project.name === projectNameFromRoute
-    );
-    if (project) {
-      this.task = project.tasks.find(
-        (task) => task.id === Number(taskIdFromRoute)
+    // Find the task that correspond with the id and project provided in the route.
+    if (taskIdFromRoute && projectNameFromRoute) {
+      this.task = this.taskService.getTask(
+        taskIdFromRoute,
+        projectNameFromRoute
       );
     }
   }
