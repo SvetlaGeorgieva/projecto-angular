@@ -11,4 +11,12 @@ export class ProjectService {
   getProjects(): Project[] {
     return PROJECTS;
   }
+
+  getProject(name: String): Project {
+    const project = PROJECTS.find((project) => project.name === name);
+    if (project === undefined) {
+      throw new TypeError(`No project with name: ${name} !`);
+    }
+    return project;
+  }
 }

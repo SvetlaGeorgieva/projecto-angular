@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
-import { Project, PROJECTS } from '../projects';
+import { Project } from '../projects';
+import { ProjectService } from '../project.service';
 
 @Component({
   selector: 'app-project-details',
@@ -11,7 +12,10 @@ import { Project, PROJECTS } from '../projects';
 export class ProjectDetailsComponent implements OnInit {
   project: Project | undefined;
 
-  constructor(private route: ActivatedRoute) {}
+  constructor(
+    private route: ActivatedRoute,
+    private projectService: ProjectService
+  ) {}
 
   ngOnInit(): void {
     // Get the project name from the current route.
@@ -19,8 +23,8 @@ export class ProjectDetailsComponent implements OnInit {
     const projectNameFromRoute = routeParams.get('projectName');
 
     // Find the project that correspond with the name provided in the route.
-    this.project = PROJECTS.find(
-      (project) => project.name === projectNameFromRoute
-    );
+    if (projectNameFromRoute) {
+      this.project = this.projectService.getProject(projectNameFromRoute);
+    }
   }
 }
