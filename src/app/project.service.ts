@@ -19,10 +19,24 @@ export class ProjectService {
   }
 
   getProject(name: String): Project {
-    const project = PROJECTS.find((project) => project.name === name);
+    let projects = this.getProjects();
+
+    const project = projects.find((project) => project.name === name);
     if (project === undefined) {
       throw new TypeError(`No project with name: ${name} !`);
     }
     return project;
+  }
+
+  updateProject(projectName: string, updatedProject: Project) {
+    let projects = this.getProjects();
+    const lastProjectIndex = projects.findIndex(
+      (project) => project.name === projectName
+    );
+
+    if (lastProjectIndex !== -1) {
+      projects[lastProjectIndex] = updatedProject;
+      localStorage.setItem('projects', JSON.stringify(projects));
+    }
   }
 }

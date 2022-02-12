@@ -50,8 +50,16 @@ export class TaskService {
     return task;
   }
 
-  updateTask(task: Task): void {
-    // TODO
-    console.log('Task service: ', task.status);
+  updateTask(updatedTask: Task, projectName: string): void {
+    let project = this.projectService.getProject(projectName);
+
+    const lastTaskIndex = project.tasks.findIndex(
+      (task) => task.id === Number(updatedTask.id)
+    );
+
+    if (lastTaskIndex !== -1) {
+      project.tasks[lastTaskIndex] = updatedTask;
+      this.projectService.updateProject(projectName, project);
+    }
   }
 }

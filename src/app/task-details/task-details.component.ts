@@ -11,29 +11,9 @@ import { TaskService } from '../task.service';
   styleUrls: ['./task-details.component.css'],
 })
 export class TaskDetailsComponent implements OnInit {
-  // @Input() task!: Task;
   task!: Task;
-
-  // taskInfoForm = this.formBuilder.group({
-  //   id: '',
-  //   type: '',
-  //   title: '',
-  //   description: '',
-  //   assignee: '',
-  //   priority: '',
-  //   status: '',
-  //   estimate: '',
-  //   createdAt: '',
-  // });
-
-  // type: 'Story' | 'Bug';
-  // title: string;
-  // description: string;
-  // assignee: string;
-  // priority: 'Low' | 'Normal' | 'High' | 'Critical';
-  // status: 'To Do' | 'In Progress' | 'Ready for Test' | 'Done';
-  // estimate: number;
-  // createdAt: string;
+  taskId: number | undefined;
+  projectName!: string;
 
   constructor(
     private route: ActivatedRoute,
@@ -47,6 +27,9 @@ export class TaskDetailsComponent implements OnInit {
     const taskIdFromRoute = Number(routeParams.get('taskId'));
     const projectNameFromRoute = routeParams.get('projectName');
 
+    this.taskId = taskIdFromRoute;
+    this.projectName = projectNameFromRoute as string;
+
     // Find the task that correspond with the id and project provided in the route.
     if (taskIdFromRoute && projectNameFromRoute) {
       this.task = this.taskService.getTask(
@@ -57,12 +40,9 @@ export class TaskDetailsComponent implements OnInit {
   }
 
   updateTask(): void {
-    // TODO Process updating task data
+    // this.log(this.task);
+    this.taskService.updateTask(this.task, this.projectName);
     this.log('Your task has been updated');
-    this.log(this.task);
-    if (this.task) {
-      this.taskService.updateTask(this.task);
-    }
   }
 
   log(msg: any): void {
