@@ -7,6 +7,7 @@ import { AppComponent } from './app.component';
 import { ProjectListComponent } from './project-list/project-list.component';
 import { ProjectDetailsComponent } from './project-details/project-details.component';
 import { TaskDetailsComponent } from './task-details/task-details.component';
+import { TopBarComponent } from './top-bar/top-bar.component';
 
 @NgModule({
   declarations: [
@@ -14,6 +15,7 @@ import { TaskDetailsComponent } from './task-details/task-details.component';
     ProjectListComponent,
     ProjectDetailsComponent,
     TaskDetailsComponent,
+    TopBarComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, FormsModule],
   providers: [],
