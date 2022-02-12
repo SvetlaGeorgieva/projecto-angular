@@ -1,4 +1,5 @@
 import { NgModule } from '@angular/core';
+import { MDBBootstrapModule } from 'angular-bootstrap-md';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
@@ -17,7 +18,12 @@ import { TopBarComponent } from './top-bar/top-bar.component';
     TaskDetailsComponent,
     TopBarComponent,
   ],
-  imports: [BrowserModule, AppRoutingModule, FormsModule],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    FormsModule,
+    MDBBootstrapModule.forRoot(),
+  ],
   providers: [],
   bootstrap: [AppComponent],
 })
