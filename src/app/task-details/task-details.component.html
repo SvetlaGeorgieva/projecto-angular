@@ -74,4 +74,5 @@
   <input id="createdAt" [(ngModel)]="task.createdAt" />
 </div> -->
 
-<button class="button" type="submit">Update task</button>
+<button class="button" (click)="updateTask()">Update task</button>
+<button class="button" (click)="log(task)">Log task to console</button>

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { LogService } from '../log.service';
 
 import { Task } from '../task';
 import { TaskService } from '../task.service';
@@ -36,7 +37,8 @@ export class TaskDetailsComponent implements OnInit {
 
   constructor(
     private route: ActivatedRoute,
-    private taskService: TaskService
+    private taskService: TaskService,
+    private logger: LogService
   ) {}
 
   ngOnInit(): void {
@@ -56,10 +58,14 @@ export class TaskDetailsComponent implements OnInit {
 
   updateTask(): void {
     // TODO Process updating task data
-    console.warn('Your task has been updated');
-    console.log(this.task);
+    this.log('Your task has been updated');
+    this.log(this.task);
     if (this.task) {
       this.taskService.updateTask(this.task);
     }
+  }
+
+  log(msg: any): void {
+    this.logger.log(msg);
   }
 }

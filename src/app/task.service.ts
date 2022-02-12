@@ -52,6 +52,6 @@ export class TaskService {
 
   updateTask(task: Task): void {
     // TODO
-    console.log(task.status);
+    console.log('Task service: ', task.status);
   }
 }
