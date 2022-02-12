@@ -9,50 +9,69 @@
 
 <!-- // type: 'Story' | 'Bug'; -->
 <div>
-  <label for="task-type"> Type: </label>
-  <input id="task-type" placeholder="Task type" />
+  <label for="type"> Type: </label>
+  <select id="type" name="type" [(ngModel)]="task.type">
+    <option *ngFor="let item of ['Story', 'Bug']" [value]="item">
+      {{ item }}
+    </option>
+  </select>
 </div>
 
 <!-- // title: string; -->
 <div>
-  <label for="task-title"> Title </label>
-  <input id="task-title" placeholder="Task title" />
+  <label for="title"> Title </label>
+  <input id="title" [(ngModel)]="task.title" />
 </div>
 
 <!-- // description: string; -->
 <div>
   <label for="description"> Description </label>
-  <input id="description" type="text" formControlName="description" />
+  <input id="description" [(ngModel)]="task.description" />
 </div>
 
 <!-- // assignee: string; -->
 <div>
   <label for="assignee"> Assignee </label>
-  <input id="assignee" type="text" formControlName="assignee" />
+  <input id="assignee" [(ngModel)]="task.assignee" />
 </div>
 
 <!-- // priority: 'Low' | 'Normal' | 'High' | 'Critical'; -->
 <div>
   <label for="priority"> Priority </label>
-  <input id="priority" type="text" formControlName="priority" />
+  <select id="priority" name="priority" [(ngModel)]="task.priority">
+    <option
+      *ngFor="let item of ['Low', 'Normal', 'High', 'Critical']"
+      [value]="item"
+    >
+      {{ item }}
+    </option>
+  </select>
 </div>
 
 <!-- // status: 'To Do' | 'In Progress' | 'Ready for Test' | 'Done'; -->
 <div>
   <label for="status"> Status </label>
-  <input id="status" type="text" formControlName="status" />
+  <select id="status" name="status" [(ngModel)]="task.status">
+    <option
+      *ngFor="let item of ['To Do', 'In Progress', 'Ready for Test', 'Done']"
+      [value]="item"
+    >
+      {{ item }}
+    </option>
+  </select>
 </div>
 
 <!-- // estimate: number; -->
 <div>
   <label for="estimate"> Estimate </label>
-  <input id="estimate" type="text" formControlName="estimate" />
+  <input id="estimate" [(ngModel)]="task.estimate" />
 </div>
 
 <!-- // createdAt: string; -->
-<div>
+<div><span>Created At: </span>{{ task.createdAt }}</div>
+<!-- <div>
   <label for="createdAt"> Created At </label>
-  <input id="createdAt" type="text" formControlName="createdAt" />
-</div>
+  <input id="createdAt" [(ngModel)]="task.createdAt" />
+</div> -->
 
 <button class="button" type="submit">Update task</button>

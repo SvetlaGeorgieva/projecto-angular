@@ -57,5 +57,9 @@ export class TaskDetailsComponent implements OnInit {
   updateTask(): void {
     // TODO Process updating task data
     console.warn('Your task has been updated');
+    console.log(this.task);
+    if (this.task) {
+      this.taskService.updateTask(this.task);
+    }
   }
 }
