@@ -9,7 +9,13 @@ export class ProjectService {
   constructor() {}
 
   getProjects(): Project[] {
-    return PROJECTS;
+    let projectsLSString = localStorage.getItem('projects');
+    if (projectsLSString) {
+      let projectsLS: Project[] = JSON.parse(projectsLSString);
+      return projectsLS;
+    } else {
+      return PROJECTS;
+    }
   }
 
   getProject(name: String): Project {
