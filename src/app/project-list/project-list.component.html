@@ -1,20 +1,25 @@
-<div class="container-fluid bg-warning bg-gradient w-auto p-3 vh-100">
+<div class="container-fluid w-auto p-3 vh-100">
   <h2>Projects board</h2>
 
-  <div class="row d-flex justify-content-center">
-    <div class="col-sm-4" *ngFor="let project of projects">
-      <div class="card text-center border border-primary shadow-0 mb-3">
-        <div class="card-body">
-          <h5 class="card-title">{{ project.name }}</h5>
-          <a
-            [title]="project.name + ' details'"
-            [routerLink]="['/projects', project.name]"
-            class="btn btn-primary"
-            >Go to project</a
-          >
-        </div>
-        <div class="card-footer text-muted border-primary">
-          {{ project.tasks.length }} tasks in project
+  <div class="container-md w-80">
+    <div class="row d-flex flex-row justify-content-between">
+      <div
+        class="col-lg-4 col-md-6 col-sm-6 p-3"
+        *ngFor="let project of projects"
+      >
+        <div class="card text-center border border-primary shadow-0 m-3">
+          <div class="card-body">
+            <h5 class="card-title">{{ project.name }}</h5>
+            <a
+              [title]="project.name + ' details'"
+              [routerLink]="['/projects', project.name]"
+              class="btn btn-primary"
+              >Go to project</a
+            >
+          </div>
+          <div class="card-footer text-muted border-primary">
+            {{ project.tasks.length }} tasks in project
+          </div>
         </div>
       </div>
     </div>

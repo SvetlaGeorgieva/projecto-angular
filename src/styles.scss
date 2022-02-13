@@ -1,4 +1,18 @@
 /* Application-wide Styles */
+:root {
+  --my-color1: #rgb(213, 178, 82);
+  --my-color2: #rgb(113, 187, 163);
+  --my-color3: #rgb(71, 146, 160);
+  --my-color4: #rgb(53, 75, 117);
+  --my-color5: #rgb(45, 51, 87);
+  --my-color6: #rgb(10, 15, 39);
+}
+
+.my-primary {
+  color: var(--my-color5);
+  background-color: var(--my-color2);
+}
+
 // h1 {
 //   color: #369;
 //   font-family: Arial, Helvetica, sans-serif;
@@ -11,10 +25,10 @@
 //   font-weight: lighter;
 // }
 body {
-  margin: 2em;
+  // margin: 2em;
   // background-color: rgb(16, 16, 49);
-  // background-color: rgba(251, 251, 251, 0.15);
-  background-color: #e3f2fd;
+  background-color: var(--my-color2);
+  // background-color: #e3f2fd;
 }
 // body,
 // input[type="text"],
