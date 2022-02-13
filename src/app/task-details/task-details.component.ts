@@ -14,6 +14,7 @@ export class TaskDetailsComponent implements OnInit {
   task!: Task;
   taskId: number | undefined;
   projectName!: string;
+  createdAtFormatted: string = '';
 
   constructor(
     private route: ActivatedRoute,
@@ -37,6 +38,8 @@ export class TaskDetailsComponent implements OnInit {
         projectNameFromRoute
       );
     }
+
+    this.setFormattedDate(this.task.createdAt);
   }
 
   updateTask(): void {
@@ -47,5 +50,25 @@ export class TaskDetailsComponent implements OnInit {
 
   log(msg: any): void {
     this.logger.log(msg);
+  }
+
+  setFormattedDate(dateString: string): void {
+    let date = Date.parse(dateString);
+
+    let options: Intl.DateTimeFormatOptions = {
+      year: 'numeric',
+      month: 'numeric',
+      day: 'numeric',
+      hour: 'numeric',
+      minute: 'numeric',
+      second: 'numeric',
+      hour12: false,
+      timeZone: 'Europe/Sofia',
+    };
+
+    this.createdAtFormatted = new Intl.DateTimeFormat(
+      'default',
+      options
+    ).format(date);
   }
 }
