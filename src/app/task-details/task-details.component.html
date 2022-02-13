@@ -1,16 +1,24 @@
-<h2>Task Details</h2>
-
-<div *ngIf="task">
-  <h3>{{ task.title }}</h3>
-</div>
+<h2>Task: {{ task.title }}</h2>
 
 <!-- // id: number; -->
-<div><span>ID: </span>{{ task.id }}</div>
+<div class="input-group mb-3">
+  <span class="input-group-text">ID</span>
+  <input
+    id="id"
+    type="text"
+    [ngModel]="task.id"
+    class="form-control"
+    placeholder="ID"
+    aria-label="ID"
+    aria-describedby="task-id"
+    [readonly]="true"
+  />
+</div>
 
 <!-- // type: 'Story' | 'Bug'; -->
-<div>
-  <label for="type"> Type: </label>
-  <select id="type" name="type" [(ngModel)]="task.type">
+<div class="input-group mb-3">
+  <span class="input-group-text">Type</span>
+  <select id="type" name="type" class="form-control" [(ngModel)]="task.type">
     <option *ngFor="let item of ['Story', 'Bug']" [value]="item">
       {{ item }}
     </option>
@@ -18,27 +26,53 @@
 </div>
 
 <!-- // title: string; -->
-<div>
-  <label for="title"> Title </label>
-  <input id="title" [(ngModel)]="task.title" />
+<div class="input-group mb-3">
+  <span class="input-group-text">Title</span>
+  <input
+    id="title"
+    type="text"
+    [(ngModel)]="task.title"
+    class="form-control"
+    placeholder="Task title"
+    aria-label="title"
+    aria-describedby="task-title"
+  />
 </div>
 
 <!-- // description: string; -->
-<div>
-  <label for="description"> Description </label>
-  <input id="description" [(ngModel)]="task.description" />
+
+<div class="input-group mb-3">
+  <span class="input-group-text">Description</span>
+  <textarea
+    [(ngModel)]="task.description"
+    class="form-control"
+    aria-label="With textarea"
+  ></textarea>
 </div>
 
 <!-- // assignee: string; -->
-<div>
-  <label for="assignee"> Assignee </label>
-  <input id="assignee" [(ngModel)]="task.assignee" />
+<div class="input-group mb-3">
+  <span class="input-group-text">Assignee</span>
+  <input
+    id="assignee"
+    type="text"
+    [(ngModel)]="task.assignee"
+    class="form-control"
+    placeholder="Task assignee"
+    aria-label="assignee"
+    aria-describedby="task-assignee"
+  />
 </div>
 
 <!-- // priority: 'Low' | 'Normal' | 'High' | 'Critical'; -->
-<div>
-  <label for="priority"> Priority </label>
-  <select id="priority" name="priority" [(ngModel)]="task.priority">
+<div class="input-group mb-3">
+  <span class="input-group-text">Priority</span>
+  <select
+    id="priority"
+    name="priority"
+    class="form-control"
+    [(ngModel)]="task.priority"
+  >
     <option
       *ngFor="let item of ['Low', 'Normal', 'High', 'Critical']"
       [value]="item"
@@ -49,9 +83,14 @@
 </div>
 
 <!-- // status: 'To Do' | 'In Progress' | 'Ready for Test' | 'Done'; -->
-<div>
-  <label for="status"> Status </label>
-  <select id="status" name="status" [(ngModel)]="task.status">
+<div class="input-group mb-3">
+  <span class="input-group-text">Status</span>
+  <select
+    id="status"
+    name="status"
+    class="form-control"
+    [(ngModel)]="task.status"
+  >
     <option
       *ngFor="let item of ['To Do', 'In Progress', 'Ready for Test', 'Done']"
       [value]="item"
@@ -62,17 +101,42 @@
 </div>
 
 <!-- // estimate: number; -->
-<div>
-  <label for="estimate"> Estimate </label>
-  <input id="estimate" [(ngModel)]="task.estimate" />
+<div class="input-group mb-3">
+  <span class="input-group-text">Estimate</span>
+  <input
+    id="estimate"
+    type="text"
+    [(ngModel)]="task.estimate"
+    class="form-control"
+    placeholder="Task estimate"
+    aria-label="estimate"
+    aria-describedby="task-estimate"
+  />
 </div>
 
 <!-- // createdAt: string; -->
-<div><span>Created At: </span>{{ task.createdAt }}</div>
-<!-- <div>
-  <label for="createdAt"> Created At </label>
-  <input id="createdAt" [(ngModel)]="task.createdAt" />
-</div> -->
+<div class="input-group mb-3">
+  <span class="input-group-text">Created At</span>
+  <input
+    id="createdAt"
+    type="text"
+    [ngModel]="task.createdAt"
+    class="form-control"
+    placeholder="Task createdAt"
+    aria-label="createdAt"
+    aria-describedby="task-createdAt"
+    disabled="true"
+    data-mdb-format="ddd, dd, mmm, yyyy"
+  />
+</div>
 
-<button class="button" (click)="updateTask()">Update task</button>
+<!-- <button type="button" class="btn btn-primary">Button</button> -->
+<button
+  class="button"
+  (click)="updateTask()"
+  type="button"
+  class="btn btn-primary"
+>
+  Update task
+</button>
 <!-- <button class="button" (click)="log(task)">Log task to console</button> -->

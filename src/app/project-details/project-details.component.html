@@ -1,15 +1,23 @@
-<h2>Project Details</h2>
+<h2>Project details board</h2>
 
 <div *ngIf="project">
-  <h3>{{ project.name }}</h3>
+  <h3>{{ project.name }} - Tasks list</h3>
 
-  <li *ngFor="let task of project.tasks">
-    <button
-      type="button"
-      [routerLink]="['/projects', project.name, 'tasks', task.id]"
-    >
-      <span>{{ task.title }}</span>
-      <span> -> {{ task.status }}</span>
-    </button>
-  </li>
+  <div class="row">
+    <div class="col-md-8">
+      <ul class="list-group">
+        <li
+          *ngFor="let task of project.tasks"
+          [routerLink]="['/projects', project.name, 'tasks', task.id]"
+          class="list-group-item list-group-item-action d-flex justify-content-between align-items-center"
+        >
+          {{ task.title }}
+          <h5>
+            <span class="badge bg-primary text-light">{{ task.status }}</span>
+          </h5>
+        </li>
+      </ul>
+    </div>
+    <div class="col-md-4 bg-light">Search functionality comming soon</div>
+  </div>
 </div>
