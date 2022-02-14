@@ -1,153 +1,155 @@
-<div class="container-fluid text-center m-3">
-  <h2>Task: {{ task.title }}</h2>
+<div class="container-fluid text-center pt-4">
+  <h3>Task: {{ task.title }}</h3>
 </div>
 
-<div class="container-fluid md-comfortable">
-  <div class="row justify-content-center">
-    <div class="col col-sm-6 p-3 border rounded bg-white">
-      <!-- // id: number; -->
-      <div class="input-group mb-3">
-        <span class="input-group-text">ID</span>
-        <input
-          id="id"
-          type="text"
-          [ngModel]="task.id"
-          class="form-control"
-          placeholder="ID"
-          aria-label="ID"
-          aria-describedby="task-id"
-          [readonly]="true"
-        />
-      </div>
+<div class="p-2 mb-2">
+  <div class="container-fluid md-comfortable">
+    <div class="row justify-content-center">
+      <div class="col col-sm-6 p-3 border rounded bg-white">
+        <!-- // id: number; -->
+        <div class="input-group mb-3">
+          <span class="input-group-text">ID</span>
+          <input
+            id="id"
+            type="text"
+            [ngModel]="task.id"
+            class="form-control"
+            placeholder="ID"
+            aria-label="ID"
+            aria-describedby="task-id"
+            [readonly]="true"
+          />
+        </div>
 
-      <!-- // type: 'Story' | 'Bug'; -->
-      <div class="input-group mb-3">
-        <span class="input-group-text">Type</span>
-        <select
-          id="type"
-          name="type"
-          class="form-control"
-          [(ngModel)]="task.type"
-        >
-          <option *ngFor="let item of ['Story', 'Bug']" [value]="item">
-            {{ item }}
-          </option>
-        </select>
-      </div>
-
-      <!-- // title: string; -->
-      <div class="input-group mb-3">
-        <span class="input-group-text">Title</span>
-        <input
-          id="title"
-          type="text"
-          [(ngModel)]="task.title"
-          class="form-control"
-          placeholder="Task title"
-          aria-label="title"
-          aria-describedby="task-title"
-        />
-      </div>
-
-      <!-- // description: string; -->
-
-      <div class="input-group mb-3">
-        <span class="input-group-text">Description</span>
-        <textarea
-          [(ngModel)]="task.description"
-          class="form-control"
-          aria-label="With textarea"
-        ></textarea>
-      </div>
-
-      <!-- // assignee: string; -->
-      <div class="input-group mb-3">
-        <span class="input-group-text">Assignee</span>
-        <input
-          id="assignee"
-          type="text"
-          [(ngModel)]="task.assignee"
-          class="form-control"
-          placeholder="Task assignee"
-          aria-label="assignee"
-          aria-describedby="task-assignee"
-        />
-      </div>
-
-      <!-- // priority: 'Low' | 'Normal' | 'High' | 'Critical'; -->
-      <div class="input-group mb-3">
-        <span class="input-group-text">Priority</span>
-        <select
-          id="priority"
-          name="priority"
-          class="form-control"
-          [(ngModel)]="task.priority"
-        >
-          <option
-            *ngFor="let item of ['Low', 'Normal', 'High', 'Critical']"
-            [value]="item"
+        <!-- // type: 'Story' | 'Bug'; -->
+        <div class="input-group mb-3">
+          <span class="input-group-text">Type</span>
+          <select
+            id="type"
+            name="type"
+            class="form-control"
+            [(ngModel)]="task.type"
           >
-            {{ item }}
-          </option>
-        </select>
-      </div>
+            <option *ngFor="let item of ['Story', 'Bug']" [value]="item">
+              {{ item }}
+            </option>
+          </select>
+        </div>
 
-      <!-- // status: 'To Do' | 'In Progress' | 'Ready for Test' | 'Done'; -->
-      <div class="input-group mb-3">
-        <span class="input-group-text">Status</span>
-        <select
-          id="status"
-          name="status"
-          class="form-control"
-          [(ngModel)]="task.status"
-        >
-          <option
-            *ngFor="
-              let item of ['To Do', 'In Progress', 'Ready for Test', 'Done']
-            "
-            [value]="item"
+        <!-- // title: string; -->
+        <div class="input-group mb-3">
+          <span class="input-group-text">Title</span>
+          <input
+            id="title"
+            type="text"
+            [(ngModel)]="task.title"
+            class="form-control"
+            placeholder="Task title"
+            aria-label="title"
+            aria-describedby="task-title"
+          />
+        </div>
+
+        <!-- // description: string; -->
+
+        <div class="input-group mb-3">
+          <span class="input-group-text">Description</span>
+          <textarea
+            [(ngModel)]="task.description"
+            class="form-control"
+            aria-label="With textarea"
+          ></textarea>
+        </div>
+
+        <!-- // assignee: string; -->
+        <div class="input-group mb-3">
+          <span class="input-group-text">Assignee</span>
+          <input
+            id="assignee"
+            type="text"
+            [(ngModel)]="task.assignee"
+            class="form-control"
+            placeholder="Task assignee"
+            aria-label="assignee"
+            aria-describedby="task-assignee"
+          />
+        </div>
+
+        <!-- // priority: 'Low' | 'Normal' | 'High' | 'Critical'; -->
+        <div class="input-group mb-3">
+          <span class="input-group-text">Priority</span>
+          <select
+            id="priority"
+            name="priority"
+            class="form-control"
+            [(ngModel)]="task.priority"
           >
-            {{ item }}
-          </option>
-        </select>
-      </div>
+            <option
+              *ngFor="let item of ['Low', 'Normal', 'High', 'Critical']"
+              [value]="item"
+            >
+              {{ item }}
+            </option>
+          </select>
+        </div>
 
-      <!-- // estimate: number; -->
-      <div class="input-group mb-3">
-        <span class="input-group-text">Estimate</span>
-        <input
-          id="estimate"
-          type="text"
-          [(ngModel)]="task.estimate"
-          class="form-control"
-          placeholder="Task estimate"
-          aria-label="estimate"
-          aria-describedby="task-estimate"
-        />
-      </div>
+        <!-- // status: 'To Do' | 'In Progress' | 'Ready for Test' | 'Done'; -->
+        <div class="input-group mb-3">
+          <span class="input-group-text">Status</span>
+          <select
+            id="status"
+            name="status"
+            class="form-control"
+            [(ngModel)]="task.status"
+          >
+            <option
+              *ngFor="
+                let item of ['To Do', 'In Progress', 'Ready for Test', 'Done']
+              "
+              [value]="item"
+            >
+              {{ item }}
+            </option>
+          </select>
+        </div>
 
-      <!-- // createdAt: string; -->
-      <div class="input-group mb-3">
-        <span class="input-group-text">Created At</span>
-        <input
-          id="createdAt"
-          type="text"
-          [ngModel]="createdAtFormatted"
-          class="form-control"
-          placeholder="Task createdAt"
-          aria-label="createdAt"
-          aria-describedby="task-createdAt"
-          disabled="true"
-          data-mdb-format="ddd, dd, mmm, yyyy"
-        />
-      </div>
+        <!-- // estimate: number; -->
+        <div class="input-group mb-3">
+          <span class="input-group-text">Estimate</span>
+          <input
+            id="estimate"
+            type="text"
+            [(ngModel)]="task.estimate"
+            class="form-control"
+            placeholder="Task estimate"
+            aria-label="estimate"
+            aria-describedby="task-estimate"
+          />
+        </div>
 
-      <div class="text-center">
-        <button (click)="updateTask()" type="button" class="btn btn-primary">
-          Update task
-        </button>
+        <!-- // createdAt: string; -->
+        <div class="input-group mb-3">
+          <span class="input-group-text">Created At</span>
+          <input
+            id="createdAt"
+            type="text"
+            [ngModel]="createdAtFormatted"
+            class="form-control"
+            placeholder="Task createdAt"
+            aria-label="createdAt"
+            aria-describedby="task-createdAt"
+            disabled="true"
+            data-mdb-format="ddd, dd, mmm, yyyy"
+          />
+        </div>
+
+        <div class="text-center">
+          <button (click)="updateTask()" type="button" class="btn btn-primary">
+            Update task
+          </button>
+        </div>
+        <!-- <button class="button" (click)="log(task)">Log task to console</button> -->
       </div>
-      <!-- <button class="button" (click)="log(task)">Log task to console</button> -->
     </div>
   </div>
 </div>
