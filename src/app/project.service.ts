@@ -1,21 +1,32 @@
 import { Injectable } from '@angular/core';
 
-import { Project, PROJECTS } from './projects';
+import { HttpClient } from '@angular/common/http';
+import { Project } from './projects';
+import projects_json_data from '../assets/projects.json';
 
 @Injectable({
   providedIn: 'root',
 })
 export class ProjectService {
-  constructor() {}
+  projectsHttp = this.getProjectsHttp();
+
+  constructor(private http: HttpClient) {}
 
   getProjects(): Project[] {
+    console.log(projects_json_data);
+
     let projectsLSString = localStorage.getItem('projects');
     if (projectsLSString) {
       let projectsLS: Project[] = JSON.parse(projectsLSString);
       return projectsLS;
     } else {
-      return PROJECTS;
+      return projects_json_data as Project[];
     }
+  }
+
+  // TODO for later when using a server
+  getProjectsHttp() {
+    return this.http.get<Project[]>('../assets/projects.json');
   }
 
   getProject(name: String): Project {
