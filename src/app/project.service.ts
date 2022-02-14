@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 
 import { Project } from './projects';
 import projects_json_data from '../assets/projects.json';
+// import projects_json_data from '../assets/projects-7.json';
 // import projects_json_data from '../assets/projects-8.json';
 
 @Injectable({
