@@ -6,7 +6,7 @@ A project management system with web application. Built with Angular.
 
 - Make sure you have Node.js version >=14.0.0 and npm package manager installed. For installation help, see this [downloading-and-installing-node-js-and-npm](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm) page.
 - Fork and clone repository
-  > Or you could also download the code with a ZIP file. To do this, click on the "Code" button, a drop-down menu will appear, select "Download ZIP".
+  > Or you could instead download the code with a ZIP file. To do this, click on the "Code" button, a drop-down menu will appear, select "Download ZIP".
 - Open new terminal in project's root folder
 - Run `npm install` -> to install all dependencies
 - Run `npm start` OR `ng serve` -> to start dev server
