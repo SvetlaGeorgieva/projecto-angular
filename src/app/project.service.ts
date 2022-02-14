@@ -1,5 +1,4 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
 
 import { Project } from './projects';
 import projects_json_data from '../assets/projects.json';
@@ -10,9 +9,7 @@ import projects_json_data from '../assets/projects.json';
   providedIn: 'root',
 })
 export class ProjectService {
-  projectsHttp = this.getProjectsHttp();
-
-  constructor(private http: HttpClient) {}
+  constructor() {}
 
   getProjects(): Project[] {
     let projectsLSString = localStorage.getItem('projects');
@@ -22,11 +19,6 @@ export class ProjectService {
     } else {
       return projects_json_data as Project[];
     }
-  }
-
-  // TODO for later when using a server
-  getProjectsHttp() {
-    return this.http.get<Project[]>('../assets/projects.json');
   }
 
   getProject(name: String): Project {
